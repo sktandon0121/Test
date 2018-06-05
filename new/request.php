@@ -3,6 +3,21 @@
 
 include('db.php');
 
+$action = $_GET['action'];
+// print_r($action);die;
+switch ($action) {
+	case 'submitData':
+		submitForm($_POST,$conn);
+		break;
+	case 'getData':
+		getData($conn);
+		break;
+	
+	default:
+		echo "Nothing Found";
+		break;
+}
+
 function submitForm($post,$conn){
 	// print_r($post);
 	$sql = "INSERT INTO register (name, phone, email)
@@ -20,11 +35,22 @@ function submitForm($post,$conn){
 	echo json_encode($result);
 }
 
-function getData(){
-	echo "get all data";
-}
-submitForm($_POST,$conn);
+function getData($conn){
+	$sql = "SELECT * FROM register";
+	$result = $conn->query($sql);
+	if($result->num_rows > 0){
+		while ($row = $result->fetch_assoc()) {
+			echo '<tr>
+				<td>'.$row['name'].'</td>
+				<td>'.$row['phone'].'</td>
+				<td>'.$row['email'].'</td>
+				</tr>';
+		}
+	}else{
+		echo "No Data found";
+	}
 
+}
 
 
  ?>

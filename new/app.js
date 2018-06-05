@@ -1,11 +1,12 @@
 
 $(document).ready(function(){
 	$('#submit-req').click(function(e){submitRequest()});
+	getTableData();
 });
 
 function submitRequest(){
 	var data = $('#submit-form').serializeArray();
-	var submit_url = 'request.php';
+	var submit_url = 'request.php?action=submitData';
 	var html = '';
 	// alert('hell');
 	// console.log(data);
@@ -25,4 +26,12 @@ function submitRequest(){
 			}
 		});
 	}	
+}
+
+
+function getTableData(){
+	var get_url = 'request.php?action=getData';
+	$.get(get_url,function(data){
+		$('tbody').append(data);
+	});
 }
