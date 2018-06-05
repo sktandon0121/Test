@@ -18,6 +18,7 @@ function submitRequest(){
 			success:function(result){
 				result = JSON.parse(result);
 				// console.log(result);
+				$('#submit-form')[0].reset();
 				if(result.status == 1){
 					alert(result.data.message);
 					html = '<tr><td>'+result.data.record.name+'</td><td>'+result.data.record.phone+'</td><td>'+result.data.record.email+'</td></tr>';
