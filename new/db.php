@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "codefire";
+$password = "root";
 $db_name = 'test';
 
 // Create connection

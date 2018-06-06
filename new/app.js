@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 	$('#submit-req').click(function(e){submitRequest()});
+	$('body input.per-action').click(function(e){deleteRecord(e)});
 	getTableData();
 });
 
@@ -21,8 +22,10 @@ function submitRequest(){
 				$('#submit-form')[0].reset();
 				if(result.status == 1){
 					alert(result.data.message);
-					html = '<tr><td>'+result.data.record.name+'</td><td>'+result.data.record.phone+'</td><td>'+result.data.record.email+'</td></tr>';
+					html = '<tr><td><input type="radio" class="per-action" aria-label="Radio button for following text input"></td>	<td>'+result.data.record.name+'</td><td>'+result.data.record.phone+'</td><td>'+result.data.record.email+'</td></tr>';
 					$('tbody').append(html);
+				}else{
+					alert(result.data.message);
 				}
 			}
 		});
@@ -35,4 +38,13 @@ function getTableData(){
 	$.get(get_url,function(data){
 		$('tbody').append(data);
 	});
+}
+
+
+function deleteRecord(el){
+	alert();
+	var action = $('#edit-del option:selected').val();
+	if(action == 'Delete'){
+		console.log(el);
+	}
 }

@@ -41,6 +41,7 @@ function getData($conn){
 	if($result->num_rows > 0){
 		while ($row = $result->fetch_assoc()) {
 			echo '<tr>
+				<td><input type="radio" class="per-action" aria-label="Radio button for following text input"></td>
 				<td>'.$row['name'].'</td>
 				<td>'.$row['phone'].'</td>
 				<td>'.$row['email'].'</td>

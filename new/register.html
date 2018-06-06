@@ -43,22 +43,27 @@
  		    </div> -->
  		    <span id="submit-req" class="btn btn-primary">Submit</span>
  		  </form>
- 	</div>  
+ 	</div> 
+<br><br>
+ 	<div class="col-md-2">
+ 		<select class="form-control" id="edit-del">
+ 		  <option>Please select</option>
+ 		  <option>Delete</option>
+ 		  <option>Edit</option>
+ 		</select>
+ 	</div> 
+ 	<br><br>
  	<div class="col-md-6 table-responsive">
  		<table class="table">
  		    <thead>
  		      <tr>
+ 		      	<th>Action</th>
  		        <th>Name</th>
  		        <th>Mobile</th>
  		        <th>Email</th>
  		      </tr>
  		    </thead>
  		    <tbody>
- 		      <tr>
- 		        <td>John</td>
- 		        <td>Doe</td>
- 		        <td>john@example.com</td>
- 		      </tr>
  		      
  		    </tbody>
  		  </table>
@@ -70,31 +75,4 @@
 
 
 <script type="text/javascript" src="app.js">
-	
-<<<<<<< HEAD
-=======
-	$(document).ready(function(){
-		$('#submit-req').click(function(e){submitRequest()});
-	});
-
-	function submitRequest(){
-		var data = $('#submit-form').serializeArray();
-		var submit_url = 'request.php';
-		// alert('hell');
-		console.log(data);
-		if(data[2].value != ''){
-			$.ajax({
-				type:'POST',
-				url : submit_url,
-				data: data,
-				success:function(e){
-					alert(e);
-				}
-			});	
-		}else{
-			alert('Please fill email field.');
-		}
-		
-	}
->>>>>>> test_branch
 </script>
